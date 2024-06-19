@@ -1,0 +1,6 @@
+som = 0
+for i in range(1,1001):
+    som += i**i
+som %= 10**10
+    
+print(som)
