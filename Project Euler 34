@@ -1,0 +1,24 @@
+from timeit import default_timer as timer
+
+start = timer()
+
+def fact(n):
+    if n == 1 or n == 0:
+        return 1
+    return n*fact(n-1)
+
+def check_curious(n):
+    lijst = [int(i) for i in str(n)]
+    som = 0
+    for i in lijst:
+        som += fact(i)
+    return som == n
+
+som = 0
+for i in range(3,100000):
+    if check_curious(i):
+        som += i
+        
+end = timer()
+print(end-start)
+print(som)
