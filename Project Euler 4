@@ -1,0 +1,23 @@
+#answer: 906609
+# takes 0,2186 to run
+#for 4 digit numbers we get 21,22s
+
+from timeit import default_timer as timer
+
+start = timer()
+
+def check_palindrome(n):
+    return n == int(str(n)[::-1])
+        
+
+max = 1000
+
+for i in range(100,1000):
+    for j in range(i,1000):
+        if check_palindrome(i*j) and i*j > max:
+            max = i*j
+
+
+end = timer()
+print(max)
+print(end-start)
