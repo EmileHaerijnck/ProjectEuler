@@ -1,0 +1,15 @@
+from timeit import default_timer as timer
+
+start = timer()
+
+lijst = list()
+for a in range(2,101):
+    for b in range(2,101):
+        lijst.append(a**b)
+        lijst.append(b**a)
+lijst = list(dict.fromkeys(lijst))
+
+end = timer()
+
+print(end-start)
+print(len(lijst))
