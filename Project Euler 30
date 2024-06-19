@@ -1,0 +1,20 @@
+from timeit import default_timer as timer
+
+start = timer()
+
+def check_fifth(n):
+    lijst = [int(i) for i in str(n)]
+    som = 0
+    for i in lijst:
+        som += i**5
+    return n == som
+
+som = 0
+for i in range(2,1000000):
+    if check_fifth(i):
+        som += i
+        
+end = timer()
+
+print(end-start)
+print(som)
