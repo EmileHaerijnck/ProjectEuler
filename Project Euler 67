@@ -1,0 +1,34 @@
+file_path = 'triangle67.txt'
+text_file = open(file_path, 'r')
+
+content = text_file.read()
+content = content.splitlines()
+
+"""
+A = '5 2 12 4 29'
+B = [int(l) for l in A.split().lstrip("0")]
+"""
+lijst = list()
+for i in content:
+    new_list = [int(j) for j in i.split()]
+    lijst.append(new_list)
+    
+    
+
+
+def delete_last_row(lijst):
+    while len(lijst) > 2:
+        last_row = lijst[-1]
+        second_to_last_row = lijst[-2]
+        for i in range(0,len(second_to_last_row)):
+            second_to_last_row[i] = max(second_to_last_row[i] + last_row[i], second_to_last_row[i] + last_row[i+1])
+        lijst.pop()
+        
+    if len(lijst) == 2:
+        return max(lijst[0][0]+ lijst[1][0], lijst[0][0] + lijst[1][1])
+    return lijst
+
+print(delete_last_row(lijst))
+
+
+   
