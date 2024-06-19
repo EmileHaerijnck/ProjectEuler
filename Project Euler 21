@@ -1,0 +1,26 @@
+import time
+
+start = time.time()
+
+def divisors1(n):
+    som = 1
+    for i in range(2, int(n**0.5)+1):
+        if n%i == 0:
+            som += i + n//i
+            
+    return som
+
+som = 0
+
+for i in range(1,10000):
+    b = divisors1(i)
+    if divisors1(b) == i and b != i:
+        som += i
+        
+        
+end = time.time()
+
+print(end-start)
+print(som)
+
+#result = sum([i for i in range(1,10000) if divisors1(i) == divisors1(divisors1(i)) and divisors1(i) != i])
