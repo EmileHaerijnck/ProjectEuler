@@ -1,0 +1,24 @@
+# answer: 4613732
+# takes 0.000154s to run
+
+from timeit import default_timer as timer
+
+start = timer()
+
+
+def fibo(n):
+    num1 = 1
+    num2 = 2
+    lijst = [num1, num2]
+    while num2 < n:
+        num = num1+num2
+        num1 = num2
+        num2 = num
+        lijst.append(num)
+    return lijst
+
+result = sum([i for i in fibo(4000000) if i % 2 == 0])
+
+end = timer()
+print(end-start)
+print(result)
