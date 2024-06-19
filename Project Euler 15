@@ -1,0 +1,10 @@
+def fact(n):
+    if n == 1 or n == 0:
+        return 1
+    else:
+        return n*fact(n-1)
+    
+def binom(a,b):
+    return fact(a)/(fact(b)*fact(a-b))
+
+print(binom(40,20))
