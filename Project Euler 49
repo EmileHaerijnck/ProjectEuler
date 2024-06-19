@@ -1,0 +1,31 @@
+def is_prime(n):
+    if n == 1:
+        return False
+    sqrt = n**0.5
+    if sqrt.is_integer():
+        return False
+    for i in range(2,n//2+1):
+        if n%i == 0:
+            return False
+    return True
+
+def permutations(n1,n2,n3):
+    lijst1 = sorted([int(i) for i in str(n1)])
+    lijst2 = sorted([int(i) for i in str(n2)])
+    lijst3 = sorted([int(i) for i in str(n3)])
+    return lijst1 == lijst2 == lijst3
+
+def solve():
+    lijst = list()
+    p = 3330
+    lijst1 = [int(i) for i in range(1000, 10000-2*p) if is_prime(i)]
+    for i in lijst1:
+        for j in range(1, (10000-i)//2):
+            if is_prime(i+j) and is_prime(i+2*j) and permutations(i, i+j, i+2*j):
+                lijst.append([i, i+j, i + 2*j])
+    return lijst
+
+print(solve())
+
+
+
