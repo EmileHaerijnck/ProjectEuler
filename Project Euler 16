@@ -1,0 +1,11 @@
+from timeit import default_timer as timer
+
+start = timer()
+
+num = 2**1000
+result = sum([int(x) for x in str(num)])
+print(result)
+
+end = timer()
+
+print(end-start)
